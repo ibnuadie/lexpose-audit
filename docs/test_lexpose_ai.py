@@ -60,7 +60,7 @@ def get_credits_balance(text: str) -> int:
 
 async def test_lexia_happy_flow() -> None:
     print("[1/5] Connecting to Chrome debugger...")
-    async with websockets.connect(WS_URL, max_size=10*1024*1024) as ws:
+    async with websockets.connect(WS_URL, max_size=10*1024*1024, ping_interval=None) as ws:
         await ws.send(json.dumps({"id": 1, "method": "Page.enable"}))
         await ws.recv()
         
