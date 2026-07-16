@@ -12,17 +12,21 @@ WS_URL: str = "ws://localhost:9222/devtools/page/180D1077D3AD96F06063B5EC656D339
 async def run_eval(ws: websockets.WebSocketClientProtocol, expression: str, retries: int = 8) -> Any:
     """Helper to run JS expressions on target page with retry support"""
     for attempt in range(retries):
+        cmd_id = 100 + attempt * 10
         await ws.send(json.dumps({
-            "id": 100 + attempt, 
+            "id": cmd_id, 
             "method": "Runtime.evaluate", 
             "params": {"expression": expression, "returnByValue": True}
         }))
-        resp = await ws.recv()
-        result = json.loads(resp)
-        res_obj = result.get('result', {})
         
+        while True:
+            resp = await ws.recv()
+            result = json.loads(resp)
+            if result.get('id') == cmd_id:
+                break
+                
+        res_obj = result.get('result', {})
         if "exceptionDetails" in res_obj:
-            # Wait and retry if DOM is not ready
             await asyncio.sleep(1.5)
             continue
             
