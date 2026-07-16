@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Lexpose AI Drafting Flowchart",
+    "subtitle": "Detailed UI steps, Ledger balance checks, and AI background processes",
+    "output": "happy_flow_diagram.html",
+    "viewBox": [920, 850]
+  },
+  "components": [
+    { "id": "dashboard", "type": "frontend", "label": "Dashboard", "sublabel": "Mulai dengan Lexia", "pos": [80, 100] },
+    { "id": "consent", "type": "frontend", "label": "Consent Modal", "sublabel": "Beta Warning", "pos": [80, 190] },
+    { "id": "intake", "type": "frontend", "label": "Intake Form", "sublabel": "Input >50 Chars", "pos": [80, 280] },
+    { "id": "reserve", "type": "security", "label": "Reserve Ledger", "sublabel": "Lock 10 Credits", "pos": [380, 280] },
+    { "id": "classify", "type": "backend", "label": "AI Classifier", "sublabel": "Extract Brief Metadata", "pos": [680, 280] },
+    { "id": "brief_view", "type": "frontend", "label": "Brief Review", "sublabel": "Formulate Document", "pos": [80, 420] },
+    { "id": "deduct", "type": "security", "label": "Deduct Ledger", "sublabel": "Charge 5 Credits", "pos": [380, 420] },
+    { "id": "outline_gen", "type": "backend", "label": "AI Outline Gen", "sublabel": "Build Chapter/Article", "pos": [680, 420] },
+    { "id": "manual_clause", "type": "frontend", "label": "Manual Clause", "sublabel": "Type Pasal 1", "pos": [80, 560] },
+    { "id": "finalize", "type": "frontend", "label": "Finalize Doc", "sublabel": "Dismiss Warnings", "pos": [80, 650] },
+    { "id": "editor_workspace", "type": "database", "label": "Editor Workspace", "sublabel": "Live Collab Space", "pos": [380, 650] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Operator UI Interface", "wraps": ["dashboard", "consent", "intake", "brief_view", "manual_clause", "finalize"] },
+    { "kind": "security-group", "label": "Balance Ledger", "wraps": ["reserve", "deduct"] },
+    { "kind": "region", "label": "Lexia AI Engine", "wraps": ["classify", "outline_gen"] }
+  ],
+  "connections": [
+    { "from": "dashboard", "to": "consent", "variant": "default" },
+    { "from": "consent", "to": "intake", "variant": "default" },
+    { "from": "intake", "to": "reserve", "label": "Kembangkan", "variant": "emphasis", "route": "straight" },
+    { "from": "reserve", "to": "classify", "label": "Reserved OK", "variant": "emphasis", "route": "straight" },
+    { "from": "classify", "to": "brief_view", "label": "Render brief", "variant": "emphasis", "route": "orthogonal-h" },
+    { "from": "brief_view", "to": "deduct", "label": "Susun", "variant": "emphasis", "route": "straight" },
+    { "from": "deduct", "to": "outline_gen", "label": "Deducted OK", "variant": "emphasis", "route": "straight" },
+    { "from": "outline_gen", "to": "manual_clause", "label": "Render structure", "variant": "emphasis", "route": "orthogonal-h" },
+    { "from": "manual_clause", "to": "finalize", "variant": "default" },
+    { "from": "finalize", "to": "editor_workspace", "label": "Lanjut ke Editor", "variant": "emphasis", "route": "straight" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Interactive Flow Details",
+      "items": [
+        "Consistent theme: Waste Management / Persampahan",
+        "Two-phase credit logic (10 base + 5 variable)",
+        "Bypassed empty placeholders warnings",
+        "Direct transition to LexPose workspace editor"
+      ]
+    }
+  ]
+}
