@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 2.10.0">
-  <title>Lexpose AI Drafting Happy Flow Diagram</title>
+  <title>Lexpose AI Drafting Sequence Diagram</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -525,14 +525,14 @@
     <div class="header">
       <div class="header-row">
         <div class="pulse-dot"></div>
-        <h1>Lexpose AI Drafting Happy Flow</h1>
+        <h1>Lexpose AI Drafting Sequence</h1>
       </div>
-      <p class="subtitle">End-to-End User Actions and AI Backend Transitions</p>
+      <p class="subtitle">Chronological Operator Actions and AI Engine Interactions</p>
     </div>
 
     <!-- Main Diagram -->
     <div class="diagram-container">
-      <svg viewBox="0 0 720 680" role="img" aria-label="Lexpose AI Drafting Happy Flow — End-to-End User Actions and AI Backend Transitions (workflow diagram)">
+      <svg viewBox="0 0 920 930" role="img" aria-label="Lexpose AI Drafting Sequence — Chronological Operator Actions and AI Engine Interactions (sequence diagram)">
         <!-- Definitions -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -555,123 +555,157 @@
         <!-- Background Grid -->
         <rect width="100%" height="100%" fill="url(#grid)" />
 
-        <!-- Swimlanes -->
-        <rect x="40" y="52" width="640" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / User Workspace (UI)</text>
+        <!-- Time Segments -->
+        <rect x="48" y="150" width="824" height="150" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="62" y="168" class="t-dim" font-size="9" font-weight="600">01 / Intake &amp; Consent</text>
 
-        <rect x="40" y="176" width="640" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / Lexia AI Engine</text>
+        <rect x="48" y="300" width="824" height="190" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="62" y="318" class="t-dim" font-size="9" font-weight="600">02 / Request &amp; Briefing</text>
 
-        <rect x="40" y="300" width="640" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / Credit API &amp; Transaction</text>
+        <rect x="48" y="490" width="824" height="200" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="62" y="508" class="t-dim" font-size="9" font-weight="600">03 / Structure Outlining</text>
 
-        <rect x="40" y="424" width="640" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="446" class="t-dim" font-size="10" font-weight="600">04 / Document Editor</text>
+        <rect x="48" y="690" width="824" height="150" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="62" y="708" class="t-dim" font-size="9" font-weight="600">04 / Manual Input &amp; Editor</text>
 
-        <!-- Phase headers -->
-        <line x1="42" y1="35" x2="266" y2="35" class="a-default" stroke-width="1.1"/>
-        <rect x="42" y="27" width="224" height="16" rx="4" class="c-mask"/>
-        <text x="154" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">Intake &amp; Setup</text>
-        <line x1="254" y1="35" x2="476" y2="35" class="a-emphasis" stroke-width="1.1"/>
-        <rect x="254" y="27" width="222" height="16" rx="4" class="c-mask"/>
-        <text x="365" y="39" class="t-backend" font-size="8" font-weight="600" text-anchor="middle">Draft Briefing</text>
-        <line x1="454" y1="35" x2="671" y2="35" class="a-dashed" stroke-width="1.1"/>
-        <rect x="454" y="27" width="217" height="16" rx="4" class="c-mask"/>
-        <text x="562.5" y="39" class="t-messagebus" font-size="8" font-weight="600" text-anchor="middle">Structure &amp; Finalize</text>
+        <!-- Lifelines -->
+        <path d="M 62 142 L 62 865" class="a-default" stroke-width="0.8" stroke-dasharray="3,7"/>
+        <path d="M 170 142 L 170 865" class="a-default" stroke-width="0.8" stroke-dasharray="3,7"/>
+        <path d="M 278 142 L 278 865" class="a-default" stroke-width="0.8" stroke-dasharray="3,7"/>
+        <path d="M 386 142 L 386 865" class="a-default" stroke-width="0.8" stroke-dasharray="3,7"/>
+        <path d="M 494 142 L 494 865" class="a-default" stroke-width="0.8" stroke-dasharray="3,7"/>
 
-        <!-- Workflow groups -->
-        <rect x="38" y="90" width="232" height="58" rx="9" class="c-lane" stroke-width="1"/>
-        <text x="48" y="104" class="t-muted" font-size="7" font-weight="600">Configuration Gate</text>
-        <rect x="250" y="90" width="230" height="58" rx="9" class="c-lane" stroke-width="1"/>
-        <text x="260" y="104" class="t-backend" font-size="7" font-weight="600">Brief Review</text>
-        <rect x="450" y="90" width="225" height="58" rx="9" class="c-lane" stroke-width="1"/>
-        <text x="460" y="104" class="t-messagebus" font-size="7" font-weight="600">Manual Finalization</text>
+        <!-- Messages -->
+        <path d="M 69 180 L 163 180" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <rect x="47.599999999999994" y="160" width="136.8" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="170" class="t-backend" font-size="9" text-anchor="middle">Click Mulai dengan Lexia</text>
 
-        <!-- Edge paths -->
-        <path d="M 134 119 L 174 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path d="M 220 145 L 220 228 L 220 228 L 220 341" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 220 393 L 220 290 L 300 290 L 300 217" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 300 217 L 300 166 L 430 166 L 430 145" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 430 145 L 430 228 L 430 228 L 430 341" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 430 393 L 430 290 L 500 290 L 500 217" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 500 217 L 500 166 L 625 166 L 625 145" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path d="M 625 145 L 625 290 L 625 290 L 625 465" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path d="M 163 210 L 69 210" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="63.199999999999996" y="190" width="105.60000000000001" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="200" class="t-muted" font-size="9" text-anchor="middle">Beta Warning Modal</text>
 
-        <!-- Nodes -->
-        <rect x="42" y="93" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="42" y="93" width="92" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-        <text x="88" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Dashboard</text>
-        <text x="88" y="131" class="t-muted" font-size="8" text-anchor="middle">Mulai dengan Lexia</text>
+        <path d="M 69 240 L 163 240" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <rect x="52.8" y="220" width="126.4" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="230" class="t-backend" font-size="9" text-anchor="middle">Saya Mengerti (Accept)</text>
 
-        <rect x="174" y="93" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="174" y="93" width="92" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-        <text x="220" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Describe</text>
-        <text x="220" y="131" class="t-muted" font-size="8" text-anchor="middle">Input &gt;50 Chars</text>
+        <path d="M 163 270 L 69 270" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="68.4" y="250" width="95.2" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="260" class="t-muted" font-size="9" text-anchor="middle">Load Intake Page</text>
 
-        <rect x="174" y="341" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="174" y="341" width="92" height="52" rx="6" class="c-security" stroke-width="1.5"/>
-        <text x="220" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Reserve Cost</text>
-        <text x="220" y="379" class="t-muted" font-size="8" text-anchor="middle">Deduct 10 Credits</text>
+        <path d="M 69 320 L 163 320" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <rect x="37.2" y="300" width="157.6" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="310" class="t-backend" font-size="9" text-anchor="middle">Type Description (&gt;50 chars)</text>
 
-        <rect x="254" y="217" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="254" y="217" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-        <text x="300" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AI Briefing</text>
-        <text x="300" y="255" class="t-muted" font-size="8" text-anchor="middle">Classify &amp; extract</text>
+        <path d="M 177 355 L 271 355" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <rect x="140" y="335" width="168" height="16" rx="3" class="c-mask"/>
+        <text x="224" y="345" class="t-security" font-size="9" text-anchor="middle">Reserve Base Cost (10 Credits)</text>
 
-        <rect x="384" y="93" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="384" y="93" width="92" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-        <text x="430" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Brief Review</text>
-        <text x="430" y="131" class="t-muted" font-size="8" text-anchor="middle">Check values &amp; click Susun</text>
+        <path d="M 271 385 L 177 385" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="153" y="365" width="142" height="16" rx="3" class="c-mask"/>
+        <text x="224" y="375" class="t-muted" font-size="9" text-anchor="middle">Reserve OK (Balance: 493)</text>
 
-        <rect x="384" y="341" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="384" y="341" width="92" height="52" rx="6" class="c-security" stroke-width="1.5"/>
-        <text x="430" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Deduct Cost</text>
-        <text x="430" y="379" class="t-muted" font-size="8" text-anchor="middle">Deduct 5 Credits</text>
+        <path d="M 177 415 L 379 415" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <rect x="214.8" y="395" width="126.4" height="16" rx="3" class="c-mask"/>
+        <text x="278" y="405" class="t-backend" font-size="9" text-anchor="middle">Request Brief Analysis</text>
 
-        <rect x="454" y="217" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="454" y="217" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-        <text x="500" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AI Structurer</text>
-        <text x="500" y="255" class="t-muted" font-size="8" text-anchor="middle">Build chapters list</text>
+        <path d="M 379 445 L 177 445" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="214.8" y="425" width="126.4" height="16" rx="3" class="c-mask"/>
+        <text x="278" y="435" class="t-muted" font-size="9" text-anchor="middle">Brief Schema Generated</text>
 
-        <rect x="579" y="93" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="579" y="93" width="92" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-        <text x="625" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Manual Edit</text>
-        <text x="625" y="131" class="t-muted" font-size="8" text-anchor="middle">Fill Pasal 1 &amp; Finalize</text>
+        <path d="M 163 475 L 69 475" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="42.39999999999999" y="455" width="147.20000000000002" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="465" class="t-muted" font-size="9" text-anchor="middle">Render Brief configuration</text>
 
-        <rect x="579" y="465" width="92" height="52" rx="6" class="c-mask"/>
-        <rect x="579" y="465" width="92" height="52" rx="6" class="c-database" stroke-width="1.5"/>
-        <text x="625" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Live Editor</text>
-        <text x="625" y="503" class="t-muted" font-size="8" text-anchor="middle">Main editor workspace</text>
+        <path d="M 69 515 L 163 515" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <rect x="34.599999999999994" y="495" width="162.8" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="505" class="t-backend" font-size="9" text-anchor="middle">Select metadata &amp; click Susun</text>
 
-        <!-- Edge labels -->
+        <path d="M 177 550 L 271 550" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <rect x="134.8" y="530" width="178.4" height="16" rx="3" class="c-mask"/>
+        <text x="224" y="540" class="t-security" font-size="9" text-anchor="middle">Deduct Variable Cost (5 Credits)</text>
 
-        <rect x="200.6" y="208" width="38.8" height="14" rx="3" class="c-mask"/>
-        <text x="220" y="218" class="t-backend" font-size="8" text-anchor="middle">submit</text>
-        <rect x="231" y="300" width="58" height="14" rx="3" class="c-mask"/>
-        <text x="260" y="310" class="t-backend" font-size="8" text-anchor="middle">reserve ok</text>
-        <rect x="333.6" y="149" width="62.8" height="14" rx="3" class="c-mask"/>
-        <text x="365" y="159" class="t-backend" font-size="8" text-anchor="middle">draft ready</text>
-        <rect x="408.2" y="208" width="43.6" height="14" rx="3" class="c-mask"/>
-        <text x="430" y="218" class="t-backend" font-size="8" text-anchor="middle">compile</text>
-        <rect x="438.4" y="300" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-        <text x="465" y="310" class="t-backend" font-size="8" text-anchor="middle">deduct ok</text>
-        <rect x="522" y="149" width="82" height="14" rx="3" class="c-mask"/>
-        <text x="563" y="159" class="t-backend" font-size="8" text-anchor="middle">structure ready</text>
-        <rect x="600.8" y="270" width="48.4" height="14" rx="3" class="c-mask"/>
-        <text x="625" y="280" class="t-backend" font-size="8" text-anchor="middle">finalize</text>
+        <path d="M 271 580 L 177 580" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="155.6" y="560" width="136.8" height="16" rx="3" class="c-mask"/>
+        <text x="224" y="570" class="t-muted" font-size="9" text-anchor="middle">Deduct OK (Balance: 488)</text>
+
+        <path d="M 177 610 L 379 610" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <rect x="207" y="590" width="142" height="16" rx="3" class="c-mask"/>
+        <text x="278" y="600" class="t-backend" font-size="9" text-anchor="middle">Compile Outline Structure</text>
+
+        <path d="M 379 640 L 177 640" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="196.6" y="620" width="162.8" height="16" rx="3" class="c-mask"/>
+        <text x="278" y="630" class="t-muted" font-size="9" text-anchor="middle">Chapters &amp; Articles Generated</text>
+
+        <path d="M 163 670 L 69 670" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="34.599999999999994" y="650" width="162.8" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="660" class="t-muted" font-size="9" text-anchor="middle">Render structure outline view</text>
+
+        <path d="M 69 715 L 163 715" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <rect x="19" y="695" width="194" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="705" class="t-backend" font-size="9" text-anchor="middle">Input manual definitions in Pasal 1</text>
+
+        <path d="M 69 745 L 163 745" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <rect x="16.39999999999999" y="725" width="199.20000000000002" height="16" rx="3" class="c-mask"/>
+        <text x="116" y="735" class="t-backend" font-size="9" text-anchor="middle">Click Finalisasi Dokumen &amp; Lanjutkan</text>
+
+        <path d="M 177 785 L 487 785" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <rect x="253.2" y="765" width="157.6" height="16" rx="3" class="c-mask"/>
+        <text x="332" y="775" class="t-backend" font-size="9" text-anchor="middle">Transition to LexPose Editor</text>
+
+        <path d="M 487 815 L 69 815" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <rect x="194" y="795" width="168" height="16" rx="3" class="c-mask"/>
+        <text x="278" y="805" class="t-muted" font-size="9" text-anchor="middle">Render live document workspace</text>
+
+        <!-- Activations -->
+        <rect x="165" y="180" width="10" height="605" rx="3" class="c-mask"/>
+        <rect x="165" y="180" width="10" height="605" rx="3" class="c-frontend" stroke-width="1"/>
+        <rect x="273" y="355" width="10" height="30" rx="3" class="c-mask"/>
+        <rect x="273" y="355" width="10" height="30" rx="3" class="c-security" stroke-width="1"/>
+        <rect x="381" y="415" width="10" height="30" rx="3" class="c-mask"/>
+        <rect x="381" y="415" width="10" height="30" rx="3" class="c-backend" stroke-width="1"/>
+        <rect x="273" y="550" width="10" height="30" rx="3" class="c-mask"/>
+        <rect x="273" y="550" width="10" height="30" rx="3" class="c-security" stroke-width="1"/>
+        <rect x="381" y="610" width="10" height="30" rx="3" class="c-mask"/>
+        <rect x="381" y="610" width="10" height="30" rx="3" class="c-backend" stroke-width="1"/>
+        <rect x="489" y="785" width="10" height="40" rx="3" class="c-mask"/>
+        <rect x="489" y="785" width="10" height="40" rx="3" class="c-frontend" stroke-width="1"/>
+
+        <!-- Participants -->
+        <rect x="19" y="72" width="86" height="54" rx="6" class="c-mask"/>
+        <rect x="19" y="72" width="86" height="54" rx="6" class="c-external" stroke-width="1.5"/>
+        <text x="62" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Operator</text>
+        <text x="62" y="111" class="t-muted" font-size="7" text-anchor="middle">Browser Session</text>
+
+        <rect x="127" y="72" width="86" height="54" rx="6" class="c-mask"/>
+        <rect x="127" y="72" width="86" height="54" rx="6" class="c-frontend" stroke-width="1.5"/>
+        <text x="170" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Lexia UI</text>
+        <text x="170" y="111" class="t-muted" font-size="7" text-anchor="middle">React Pages</text>
+
+        <rect x="235" y="72" width="86" height="54" rx="6" class="c-mask"/>
+        <rect x="235" y="72" width="86" height="54" rx="6" class="c-security" stroke-width="1.5"/>
+        <text x="278" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Wallet API</text>
+        <text x="278" y="111" class="t-muted" font-size="7" text-anchor="middle">User Balance</text>
+
+        <rect x="343" y="72" width="86" height="54" rx="6" class="c-mask"/>
+        <rect x="343" y="72" width="86" height="54" rx="6" class="c-backend" stroke-width="1.5"/>
+        <text x="386" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Lexia Engine</text>
+        <text x="386" y="111" class="t-muted" font-size="7" text-anchor="middle">AI Generation</text>
+
+        <rect x="451" y="72" width="86" height="54" rx="6" class="c-mask"/>
+        <rect x="451" y="72" width="86" height="54" rx="6" class="c-frontend" stroke-width="1.5"/>
+        <text x="494" y="94" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Doc Editor</text>
+        <text x="494" y="111" class="t-muted" font-size="7" text-anchor="middle">LexPose Workspace</text>
 
         <!-- Legend -->
-        <text x="175" y="552" class="t-primary" font-size="10" font-weight="600">Legend</text>
-        <rect x="175" y="564" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
-        <text x="195" y="572" class="t-muted" font-size="7">User UI</text>
-        <rect x="260" y="564" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
-        <text x="280" y="572" class="t-muted" font-size="7">Agent logic</text>
-        <rect x="370" y="564" width="14" height="9" rx="2" class="c-security" stroke-width="1"/>
-        <text x="390" y="572" class="t-muted" font-size="7">Policy</text>
-        <rect x="455" y="564" width="14" height="9" rx="2" class="c-messagebus" stroke-width="1"/>
-        <text x="475" y="572" class="t-muted" font-size="7">Tool action</text>
-        <rect x="565" y="564" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
-        <text x="585" y="572" class="t-muted" font-size="7">Context / trace</text>
+        <text x="150" y="856" class="t-primary" font-size="10" font-weight="600">Legend</text>
+        <path d="M 150 876 L 184 876" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <text x="193" y="879" class="t-muted" font-size="8">request</text>
+        <path d="M 270 876 L 304 876" class="a-default" stroke-width="1.4" stroke-dasharray="3,5" marker-end="url(#arrowhead)"/>
+        <text x="313" y="879" class="t-muted" font-size="8">return</text>
+        <path d="M 385 876 L 419 876" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <text x="428" y="879" class="t-muted" font-size="8">security</text>
+        <path d="M 530 876 L 564 876" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <text x="573" y="879" class="t-muted" font-size="8">async trace</text>
       </svg>
     </div>
 
@@ -680,20 +714,40 @@
       <div class="card">
         <div class="card-header">
           <div class="card-dot cyan"></div>
-          <h3>Holistic Flow Rules</h3>
+          <h3>AI Intake</h3>
         </div>
         <ul>
-          <li>&bull; Consistent theme: Waste Management / Persampahan</li>
-          <li>&bull; Credits: deducted in two phases (10 base + 5 variable)</li>
-          <li>&bull; Bypassed empty placeholders during preview</li>
-          <li>&bull; Passed document straight to LexPose Editor</li>
+          <li>&bull; Operator inputs &gt;50 characters of description</li>
+          <li>&bull; Drafting flow reserves 10 credits flat fee</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot emerald"></div>
+          <h3>Compilation</h3>
+        </div>
+        <ul>
+          <li>&bull; Operator selects metadata options and starts structure build</li>
+          <li>&bull; System deducts 5 credits variable cost and generates BAB/Pasal</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot orange"></div>
+          <h3>Finalization</h3>
+        </div>
+        <ul>
+          <li>&bull; Manual definitions entered in Pasal 1 override auto-writing</li>
+          <li>&bull; Document editor loads workspace with the generated structure</li>
         </ul>
       </div>
     </div>
 
     <!-- Footer -->
     <p class="footer">
-      Workflow diagram &bull; Built with Archify<span class="no-print"> &bull; Press <kbd>T</kbd> for theme and <kbd>E</kbd> for export</span>
+      Sequence diagram &bull; Built with Archify<span class="no-print"> &bull; Press <kbd>T</kbd> for theme and <kbd>E</kbd> for export</span>
     </p>
   </div>
 
