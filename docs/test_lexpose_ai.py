@@ -1,5 +1,5 @@
 # test_lexpose_ai.py
-# ponytail: limit 160 lines
+# ponytail: limit 200 lines
 # strict typing: full type hints used
 
 import asyncio
@@ -133,22 +133,25 @@ async def test_lexia_happy_flow() -> None:
         })()
         """
         await run_eval(ws, submit_brief_js)
-        await asyncio.sleep(2)
         
-        # Bypass placeholder warning
-        bypass_warning_js = """
-        (() => {
-            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Lanjutkan'));
-            if (btn) btn.click();
-        })()
-        """
-        await run_eval(ws, bypass_warning_js)
-        print("  Bypassed brief configurations warnings.")
+        # Poll and bypass warning modal until URL transitions to draft-struktur
+        print("  Bypassing brief warning modal...")
+        start_time = asyncio.get_event_loop().time()
+        bypassed_brief = False
+        while asyncio.get_event_loop().time() - start_time < 60.0:
+            page_info = await run_eval(ws, "({url: window.location.href, text: document.body ? document.body.innerText : ''})")
+            if "draft-struktur" in page_info.get('url', ''):
+                bypassed_brief = True
+                break
+            
+            # Click Lanjutkan to bypass placeholders
+            await run_eval(ws, "(() => { const b = Array.from(document.querySelectorAll('button')).find(el => el.textContent.trim().includes('Lanjutkan')); if (b) b.click(); })()")
+            await asyncio.sleep(2)
+            
+        assert bypassed_brief, "Failed to navigate to draft-struktur within timeout"
         
         # Step 5: Manual Pasal 1 injection and finalize
         print("[5/5] Injecting manual Pasal 1 definitions and finalising...")
-        page_info = await wait_for_url(ws, "draft-struktur")
-        
         balance_after_deduct = get_credits_balance(page_info['text'])
         print(f"  Variable cost verification. Balance: {balance_after_deduct} Credits.")
         assert balance_after_deduct == initial_balance - 15, f"Variable cost deduction mismatch! Expected {initial_balance - 15}, got {balance_after_deduct}"
@@ -166,13 +169,22 @@ async def test_lexia_happy_flow() -> None:
         })()
         """
         await run_eval(ws, finalize_js)
-        await asyncio.sleep(2)
         
-        # Confirm incomplete finalization
-        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Lanjutkan')).click()")
-        
-        # Wait for final preview screen
-        page_info = await wait_for_url(ws, "dokumen-final-regulasi")
+        # Poll and confirm incomplete finalization warnings until URL transitions to dokumen-final-regulasi
+        print("  Bypassing finalization warning modal...")
+        start_time = asyncio.get_event_loop().time()
+        finalized = False
+        while asyncio.get_event_loop().time() - start_time < 45.0:
+            page_info = await run_eval(ws, "({url: window.location.href})")
+            if "dokumen-final-regulasi" in page_info.get('url', ''):
+                finalized = True
+                break
+                
+            # Click Lanjutkan
+            await run_eval(ws, "(() => { const b = Array.from(document.querySelectorAll('button')).find(el => el.textContent.trim().includes('Lanjutkan')); if (b) b.click(); })()")
+            await asyncio.sleep(2)
+            
+        assert finalized, "Failed to navigate to dokumen-final-regulasi within timeout"
         
         # Transition to main editor
         editor_js = """
@@ -182,13 +194,22 @@ async def test_lexia_happy_flow() -> None:
         })()
         """
         await run_eval(ws, editor_js)
-        await asyncio.sleep(2)
         
-        # Bypass editor warnings
-        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Tetap Lanjut') || b.textContent.trim().includes('Editor')).click()")
-        
-        # Final Editor check
-        page_info = await wait_for_url(ws, "documents-editor")
+        # Poll and click Tetap Lanjut editor bypass warnings until URL transitions to documents-editor
+        print("  Transitioning to live Document Editor...")
+        start_time = asyncio.get_event_loop().time()
+        entered_editor = False
+        while asyncio.get_event_loop().time() - start_time < 45.0:
+            page_info = await run_eval(ws, "({url: window.location.href})")
+            if "documents-editor" in page_info.get('url', ''):
+                entered_editor = True
+                break
+                
+            # Click Tetap Lanjut
+            await run_eval(ws, "(() => { const b = Array.from(document.querySelectorAll('button')).find(el => el.textContent.trim().includes('Tetap Lanjut') || el.textContent.trim().includes('Editor')); if (b) b.click(); })()")
+            await asyncio.sleep(2)
+            
+        assert entered_editor, "Failed to reach final Editor Workspace within timeout"
         print("🎉 SUCCESS: Happy path automation test completed successfully!")
 
 if __name__ == "__main__":
