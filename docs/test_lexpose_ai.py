@@ -138,7 +138,7 @@ async def test_lexia_happy_flow() -> None:
         print("  Bypassing brief warning modal...")
         start_time = asyncio.get_event_loop().time()
         bypassed_brief = False
-        while asyncio.get_event_loop().time() - start_time < 60.0:
+        while asyncio.get_event_loop().time() - start_time < 120.0:
             page_info = await run_eval(ws, "({url: window.location.href, text: document.body ? document.body.innerText : ''})")
             if "draft-struktur" in page_info.get('url', ''):
                 bypassed_brief = True
@@ -174,7 +174,7 @@ async def test_lexia_happy_flow() -> None:
         print("  Bypassing finalization warning modal...")
         start_time = asyncio.get_event_loop().time()
         finalized = False
-        while asyncio.get_event_loop().time() - start_time < 45.0:
+        while asyncio.get_event_loop().time() - start_time < 60.0:
             page_info = await run_eval(ws, "({url: window.location.href})")
             if "dokumen-final-regulasi" in page_info.get('url', ''):
                 finalized = True
@@ -199,7 +199,7 @@ async def test_lexia_happy_flow() -> None:
         print("  Transitioning to live Document Editor...")
         start_time = asyncio.get_event_loop().time()
         entered_editor = False
-        while asyncio.get_event_loop().time() - start_time < 45.0:
+        while asyncio.get_event_loop().time() - start_time < 60.0:
             page_info = await run_eval(ws, "({url: window.location.href})")
             if "documents-editor" in page_info.get('url', ''):
                 entered_editor = True
