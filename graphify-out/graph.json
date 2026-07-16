@@ -1,0 +1,463 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "two_phase_commit_flow",
+        "label": "Two-Phase Commit Protocol Flow Participants",
+        "nodes": [
+          "docs_lexpose_transaction_lexpose_ui",
+          "docs_lexpose_transaction_api_gateway",
+          "docs_lexpose_transaction_ledger_db",
+          "docs_lexpose_transaction_ai_worker"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "/home/backdoor/projects/lexpose-audit/docs/lexpose_transaction.html"
+      },
+      {
+        "id": "pricing_models",
+        "label": "LexCoin Generation Cost Pricing Models",
+        "nodes": [
+          "docs_strategic_plan_flat_pricing",
+          "docs_strategic_plan_per_item_pricing",
+          "docs_strategic_plan_hybrid_pricing"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "/home/backdoor/projects/lexpose-audit/docs/STRATEGIC_PLAN.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "Lexpose AI",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_lexpose",
+      "community": 1,
+      "norm_label": "lexpose ai"
+    },
+    {
+      "label": "LexCoin Usage-Based Ledger Engine",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Implemented because LLM inference is computationally expensive and billed per token, requiring strict credit allocation.",
+      "id": "docs_strategic_plan_lexcoin",
+      "community": 2,
+      "norm_label": "lexcoin usage-based ledger engine"
+    },
+    {
+      "label": "Two-Phase Commit Protocol",
+      "file_type": "rationale",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Prevents credit double-spending, API abuse, and credit leakage due to AI worker timeouts.",
+      "id": "docs_strategic_plan_two_phase_commit",
+      "community": 2,
+      "norm_label": "two-phase commit protocol"
+    },
+    {
+      "label": "B2B Enterprise Wallet Architecture",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_b2b_enterprise_architecture",
+      "community": 3,
+      "norm_label": "b2b enterprise wallet architecture"
+    },
+    {
+      "label": "PostgreSQL Advisory Locks",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Serialized wallet updates are enforced via pg_advisory_xact_lock on wallet_id to prevent negative balances under concurrent requests.",
+      "id": "docs_strategic_plan_concurrency_locks",
+      "community": 0,
+      "norm_label": "postgresql advisory locks"
+    },
+    {
+      "label": "Idempotency Guard",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Uses X-Idempotency-Key mapped to a JSONB metadata index to avoid duplicate charging or redundant AI execution.",
+      "id": "docs_strategic_plan_idempotency_guard",
+      "community": 0,
+      "norm_label": "idempotency guard"
+    },
+    {
+      "label": "Chrome DevTools MCP Automated Testing Blueprint",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_chrome_devtools_mcp",
+      "community": 1,
+      "norm_label": "chrome devtools mcp automated testing blueprint"
+    },
+    {
+      "label": "Flat Pricing Model",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_flat_pricing",
+      "community": 4,
+      "norm_label": "flat pricing model"
+    },
+    {
+      "label": "Per-Item Pricing Model",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_per_item_pricing",
+      "community": 6,
+      "norm_label": "per-item pricing model"
+    },
+    {
+      "label": "Hybrid Pricing Model",
+      "file_type": "concept",
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_strategic_plan_hybrid_pricing",
+      "community": 5,
+      "norm_label": "hybrid pricing model"
+    },
+    {
+      "label": "Lexpose Two-Phase Transaction Sequence Diagram",
+      "file_type": "document",
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_lexpose_transaction_diagram",
+      "community": 0,
+      "norm_label": "lexpose two-phase transaction sequence diagram"
+    },
+    {
+      "label": "Lexpose UI (React Portal & HUD)",
+      "file_type": "code",
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_lexpose_transaction_lexpose_ui",
+      "community": 0,
+      "norm_label": "lexpose ui (react portal & hud)"
+    },
+    {
+      "label": "API Gateway (LexCoin Backend)",
+      "file_type": "code",
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_lexpose_transaction_api_gateway",
+      "community": 0,
+      "norm_label": "api gateway (lexcoin backend)"
+    },
+    {
+      "label": "Ledger DB (Postgres Audit)",
+      "file_type": "code",
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_lexpose_transaction_ledger_db",
+      "community": 0,
+      "norm_label": "ledger db (postgres audit)"
+    },
+    {
+      "label": "AI Worker (LLM Doc Generator)",
+      "file_type": "code",
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_lexpose_transaction_ai_worker",
+      "community": 0,
+      "norm_label": "ai worker (llm doc generator)"
+    },
+    {
+      "label": "Lexpose Audit Portal Home",
+      "file_type": "document",
+      "source_file": "mockup/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mockup_index_audit_portal",
+      "community": 1,
+      "norm_label": "lexpose audit portal home"
+    },
+    {
+      "label": "Lexpose & LexCoin Audit Plan Presentation Deck",
+      "file_type": "document",
+      "source_file": "pitch-deck/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pitch_deck_index_presentation_deck",
+      "community": 1,
+      "norm_label": "lexpose & lexcoin audit plan presentation deck"
+    }
+  ],
+  "links": [
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_lexpose",
+      "target": "docs_strategic_plan_lexcoin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mockup/index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mockup_index_audit_portal",
+      "target": "docs_strategic_plan_lexpose"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "pitch-deck/index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "pitch_deck_index_presentation_deck",
+      "target": "docs_strategic_plan_lexpose"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_lexcoin",
+      "target": "docs_lexpose_transaction_diagram"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_two_phase_commit",
+      "target": "docs_strategic_plan_lexcoin"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_concurrency_locks",
+      "target": "docs_lexpose_transaction_ledger_db"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_idempotency_guard",
+      "target": "docs_lexpose_transaction_api_gateway"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/STRATEGIC_PLAN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_strategic_plan_chrome_devtools_mcp",
+      "target": "mockup_index_audit_portal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_diagram",
+      "target": "docs_lexpose_transaction_ai_worker"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_diagram",
+      "target": "docs_lexpose_transaction_api_gateway"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_diagram",
+      "target": "docs_lexpose_transaction_ledger_db"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_diagram",
+      "target": "docs_lexpose_transaction_lexpose_ui"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mockup/index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mockup_index_audit_portal",
+      "target": "docs_lexpose_transaction_diagram"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_lexpose_ui",
+      "target": "docs_lexpose_transaction_api_gateway"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_api_gateway",
+      "target": "docs_lexpose_transaction_ai_worker"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/lexpose_transaction.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_lexpose_transaction_api_gateway",
+      "target": "docs_lexpose_transaction_ledger_db"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mockup/index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mockup_index_audit_portal",
+      "target": "pitch_deck_index_presentation_deck"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "two_phase_commit_flow",
+      "label": "Two-Phase Commit Protocol Flow Participants",
+      "nodes": [
+        "docs_lexpose_transaction_lexpose_ui",
+        "docs_lexpose_transaction_api_gateway",
+        "docs_lexpose_transaction_ledger_db",
+        "docs_lexpose_transaction_ai_worker"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/backdoor/projects/lexpose-audit/docs/lexpose_transaction.html"
+    },
+    {
+      "id": "pricing_models",
+      "label": "LexCoin Generation Cost Pricing Models",
+      "nodes": [
+        "docs_strategic_plan_flat_pricing",
+        "docs_strategic_plan_per_item_pricing",
+        "docs_strategic_plan_hybrid_pricing"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/home/backdoor/projects/lexpose-audit/docs/STRATEGIC_PLAN.md"
+    }
+  ]
+}

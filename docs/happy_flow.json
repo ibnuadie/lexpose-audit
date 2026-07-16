@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Lexpose AI Drafting Happy Flow",
+    "subtitle": "End-to-End User Actions and AI Backend Transitions",
+    "output": "happy_flow_diagram.html",
+    "viewBox": [720, 680]
+  },
+  "lanes": [
+    { "id": "ui", "label": "User Workspace (UI)" },
+    { "id": "engine", "label": "Lexia AI Engine" },
+    { "id": "credit", "label": "Credit API & Transaction" },
+    { "id": "editor", "label": "Document Editor" }
+  ],
+  "phases": [
+    { "id": "intake", "label": "Intake & Setup", "fromCol": 0, "toCol": 1 },
+    { "id": "analysis", "label": "Draft Briefing", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "compilation", "label": "Structure & Finalize", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "setup", "label": "Configuration Gate", "lane": "ui", "fromCol": 0, "toCol": 1 },
+    { "id": "brief_group", "label": "Brief Review", "lane": "ui", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "final_group", "label": "Manual Finalization", "lane": "ui", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["dashboard", "describe", "credit_reserve", "ai_brief", "brief_review", "credit_deduct", "ai_structure", "manual_edit", "editor_workspace"],
+  "nodes": [
+    { "id": "dashboard", "lane": "ui", "col": 0, "type": "frontend", "label": "Dashboard", "sublabel": "Mulai dengan Lexia" },
+    { "id": "describe", "lane": "ui", "col": 1, "type": "frontend", "label": "Describe", "sublabel": "Input >50 Chars" },
+    { "id": "credit_reserve", "lane": "credit", "col": 1, "type": "security", "label": "Reserve Cost", "sublabel": "Deduct 10 Credits" },
+    { "id": "ai_brief", "lane": "engine", "col": 2, "type": "backend", "label": "AI Briefing", "sublabel": "Classify & extract" },
+    { "id": "brief_review", "lane": "ui", "col": 3, "type": "frontend", "label": "Brief Review", "sublabel": "Check values & click Susun" },
+    { "id": "credit_deduct", "lane": "credit", "col": 3, "type": "security", "label": "Deduct Cost", "sublabel": "Deduct 5 Credits" },
+    { "id": "ai_structure", "lane": "engine", "col": 4, "type": "backend", "label": "AI Structurer", "sublabel": "Build chapters list" },
+    { "id": "manual_edit", "lane": "ui", "col": 5, "type": "frontend", "label": "Manual Edit", "sublabel": "Fill Pasal 1 & Finalize" },
+    { "id": "editor_workspace", "lane": "editor", "col": 5, "type": "database", "label": "Live Editor", "sublabel": "Main editor workspace" }
+  ],
+  "edges": [
+    { "from": "dashboard", "to": "describe", "variant": "default" },
+    { "from": "describe", "to": "credit_reserve", "label": "submit", "variant": "emphasis", "fromSide": "bottom", "toSide": "top", "route": "drop" },
+    { "from": "credit_reserve", "to": "ai_brief", "label": "reserve ok", "variant": "emphasis", "fromSide": "bottom", "toSide": "top", "route": "drop", "labelDy": 30 },
+    { "from": "ai_brief", "to": "brief_review", "label": "draft ready", "variant": "emphasis", "fromSide": "top", "toSide": "bottom", "route": "drop", "labelAt": [365, 159] },
+    { "from": "brief_review", "to": "credit_deduct", "label": "compile", "variant": "emphasis", "fromSide": "bottom", "toSide": "top", "route": "drop" },
+    { "from": "credit_deduct", "to": "ai_structure", "label": "deduct ok", "variant": "emphasis", "fromSide": "bottom", "toSide": "top", "route": "drop", "labelDy": 30 },
+    { "from": "ai_structure", "to": "manual_edit", "label": "structure ready", "variant": "emphasis", "fromSide": "top", "toSide": "bottom", "route": "drop", "labelAt": [563, 159] },
+    { "from": "manual_edit", "to": "editor_workspace", "label": "finalize", "variant": "emphasis", "fromSide": "bottom", "toSide": "top", "route": "drop" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Holistic Flow Rules",
+      "items": [
+        "Consistent theme: Waste Management / Persampahan",
+        "Credits: deducted in two phases (10 base + 5 variable)",
+        "Bypassed empty placeholders during preview",
+        "Passed document straight to LexPose Editor"
+      ]
+    }
+  ]
+}

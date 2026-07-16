@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lexpose Audit Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: oklch(0.08 0.01 250);
+            --card-bg: rgba(22, 27, 34, 0.6);
+            --border-color: rgba(48, 54, 61, 0.8);
+            --text-primary: oklch(0.95 0.01 250);
+            --text-secondary: oklch(0.7 0.02 250);
+            --accent-blue: oklch(0.65 0.15 250);
+            --accent-green: oklch(0.75 0.15 140);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .meta-info {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .meta-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta-label {
+            color: var(--text-secondary);
+        }
+
+        .meta-value {
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lexpose Audit Workspace</h1>
+            <p class="subtitle">Harden and Verify AI Document Generation Happy Flow</p>
+        </header>
+
+        <main>
+            <div class="section-title">Workspace Documents</div>
+            <div class="grid">
+                <a href="../docs/STRATEGIC_PLAN.md" class="card">
+                    <div>
+                        <h3>Strategic Plan</h3>
+                        <p>Comprehensive audit documentation including transaction logic, risks, and testing steps.</p>
+                    </div>
+                    <div class="card-link">View Markdown &#x2192;</div>
+                </a>
+
+                <a href="../docs/happy_flow_diagram.html" class="card">
+                    <div>
+                        <h3>Happy Flow Diagram</h3>
+                        <p>Workflow diagram of Lexpose AI Drafting sequence rendered using Archify style.</p>
+                    </div>
+                    <div class="card-link">Open Diagram &#x2192;</div>
+                </a>
+
+                <a href="../pitch-deck/index.html" class="card">
+                    <div>
+                        <h3>Presentation Deck</h3>
+                        <p>Reveal.js slides deck mapping the transaction workflow and browser test strategies.</p>
+                    </div>
+                    <div class="card-link">Play Slides &#x2192;</div>
+                </a>
+            </div>
+
+            <div class="section-title">Workspace Meta Info</div>
+            <div class="meta-info">
+                <div class="meta-line">
+                    <span class="meta-label">Project Directory:</span>
+                    <span class="meta-value">/projects/lexpose-audit/</span>
+                </div>
+                <div class="meta-line">
+                    <span class="meta-label">Target Engine:</span>
+                    <span class="meta-value">Lexpose AI Document Generator</span>
+                </div>
+                <div class="meta-line">
+                    <span class="meta-label">Execution Port:</span>
+                    <span class="meta-value">http://localhost:9222</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lexpose AI Audit Plan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css" id="theme">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Lexpose AI Drafting</h1>
+                <h3>Strategic Audit & Interactive Testing Plan</h3>
+                <p>
+                    <small>Prepared for the Interactive Chrome DevTools Testing Phase</small>
+                </p>
+            </section>
+
+            <!-- Slide 2: Project Mission -->
+            <section>
+                <h2>Project Mission</h2>
+                <p>Verify and harden the document generation happy flow and UI state transitions of Lexpose, an AI-powered legal document generation app.</p>
+            </section>
+
+            <!-- Slide 3: Lexia AI Drafting Flow -->
+            <section>
+                <h2>AI Drafting Workflow</h2>
+                <ul>
+                    <li class="fragment"><strong>01. Dashboard Intake</strong> - Operator initiates a draft.</li>
+                    <li class="fragment"><strong>02. Description Gate</strong> - >50 characters request input.</li>
+                    <li class="fragment"><strong>03. Brief Formulation</strong> - Classify normative/contractual elements.</li>
+                    <li class="fragment"><strong>04. Structure Generator</strong> - Chapters & Articles compilation.</li>
+                    <li class="fragment"><strong>05. Live Editor Workspace</strong> - Document finalization and editing.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Testing Scope & Risk Areas -->
+            <section>
+                <h2>Critical Audit Focus Areas</h2>
+                <ul>
+                    <li><strong>Functional Integrity</strong>: Outline and brief parameters.</li>
+                    <li><strong>Manual Injections</strong>: Verify overriding AI generation with custom clauses.</li>
+                    <li><strong>Credits Consumption</strong>: Reservation and variable cost deduction.</li>
+                    <li><strong>HUD Reactive Sync</strong>: Real-time UI balance updates.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Browser Automation Plan -->
+            <section>
+                <h2>Chrome DevTools Strategy</h2>
+                <ul>
+                    <li>Target active Chromium tab via debugger port.</li>
+                    <li>Run user flow simulations and evaluate state updates.</li>
+                    <li>Verify form parameter selections (radios & checkboxes).</li>
+                    <li>Capture screenshots to audit visual correctness.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide'
+        });
+    </script>
+</body>
+</html>

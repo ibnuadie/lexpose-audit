@@ -1,0 +1,4 @@
+/home/backdoor/projects/lexpose-audit/docs/STRATEGIC_PLAN.md
+/home/backdoor/projects/lexpose-audit/docs/lexpose_transaction.html
+/home/backdoor/projects/lexpose-audit/mockup/index.html
+/home/backdoor/projects/lexpose-audit/pitch-deck/index.html

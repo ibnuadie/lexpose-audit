@@ -1,0 +1,27 @@
+{
+  "/home/backdoor/projects/lexpose-audit/docs/lexpose_transaction.sequence.json": {
+    "mtime": 1784172695.721927,
+    "ast_hash": "edc7cb3c36bbe4fc334cfd8590bc25fa",
+    "semantic_hash": "edc7cb3c36bbe4fc334cfd8590bc25fa"
+  },
+  "/home/backdoor/projects/lexpose-audit/docs/STRATEGIC_PLAN.md": {
+    "mtime": 1784172706.7879696,
+    "ast_hash": "edb98fb5a8c9f02ff8841d3ae54054a6",
+    "semantic_hash": "edb98fb5a8c9f02ff8841d3ae54054a6"
+  },
+  "/home/backdoor/projects/lexpose-audit/docs/lexpose_transaction.html": {
+    "mtime": 1784172699.0709395,
+    "ast_hash": "c3272be803ff71333e4469f29fc82f8f",
+    "semantic_hash": "c3272be803ff71333e4469f29fc82f8f"
+  },
+  "/home/backdoor/projects/lexpose-audit/mockup/index.html": {
+    "mtime": 1784172725.9090464,
+    "ast_hash": "60253556369fe9e320482d83740369d0",
+    "semantic_hash": "60253556369fe9e320482d83740369d0"
+  },
+  "/home/backdoor/projects/lexpose-audit/pitch-deck/index.html": {
+    "mtime": 1784172714.6450007,
+    "ast_hash": "f4ba95e14f6452fb650bac45d9b7294e",
+    "semantic_hash": "f4ba95e14f6452fb650bac45d9b7294e"
+  }
+}
