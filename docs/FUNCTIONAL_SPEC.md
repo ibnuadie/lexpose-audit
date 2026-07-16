@@ -65,3 +65,19 @@ To execute the test script locally:
 ```bash
 ./venv/bin/python docs/test_lexpose_ai.py
 ```
+
+---
+
+## 🖼️ 5. Step-by-Step UI Verification Screenshots
+
+Here are the screenshots captured during the interactive verification:
+
+### 1. Dashboard Portal
+![01_dashboard.png](01_dashboard.png)
+
+### 2. Brief Formulation Settings
+![02_brief_formulation.png](02_brief_formulation.png)
+
+### 3. Editor Workspace
+![03_editor_workspace.png](03_editor_workspace.png)
+
