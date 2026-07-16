@@ -75,7 +75,7 @@ async def test_lexia_happy_flow() -> None:
         (() => {
             const ta = document.querySelector('textarea');
             const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
-            nativeTextAreaValueSetter.call(ta, 'Peraturan daerah tentang pengelolaan sampah rumah tangga dan limbah non-organik untuk mendorong warga memilah sampah dari sumber.');
+            nativeTextAreaValueSetter.call(ta, 'Peraturan bupati tentang keterbukaan informasi publik untuk menjamin hak warga mengakses dokumen dan informasi pemerintah daerah secara transparan.');
             ta.dispatchEvent(new Event('input', { bubbles: true }));
             ta.dispatchEvent(new Event('change', { bubbles: true }));
             const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Kembangkan'));
@@ -133,7 +133,7 @@ async def test_lexia_happy_flow() -> None:
         (() => {
             const ta = Array.from(document.querySelectorAll('textarea')).find(el => el.placeholder === 'Teks pasal...');
             const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
-            nativeTextAreaValueSetter.call(ta, 'Pasal 1: Ketentuan Umum (Sampah Rumah Tangga, Limbah Non-Organik, Warga, Pemerintah Daerah).');
+            nativeTextAreaValueSetter.call(ta, 'Pasal 1: Ketentuan Umum (Informasi Publik, Badan Publik, Pemohon Informasi, Pejabat Pengelola Informasi dan Dokumentasi).');
             ta.dispatchEvent(new Event('input', { bubbles: true }));
             ta.dispatchEvent(new Event('change', { bubbles: true }));
             const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Finalisasi'));
