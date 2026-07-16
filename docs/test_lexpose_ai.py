@@ -35,7 +35,7 @@ async def test_lexia_happy_flow() -> None:
         print("[2/5] Navigating through warning modal...")
         click_lexia_js = """
         (() => {
-            const el = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Mulai dengan Lexia');
+            const el = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('dengan Lexia') || b.textContent.trim().includes('Lexia'));
             if (el) el.click();
         })()
         """
@@ -44,7 +44,7 @@ async def test_lexia_happy_flow() -> None:
         
         click_agree_js = """
         (() => {
-            const el = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Saya mengerti dan setuju');
+            const el = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Saya mengerti') || b.textContent.trim().includes('mengerti'));
             if (el) el.click();
         })()
         """
@@ -65,7 +65,7 @@ async def test_lexia_happy_flow() -> None:
             nativeTextAreaValueSetter.call(ta, 'Peraturan daerah tentang pengelolaan sampah rumah tangga dan limbah non-organik untuk mendorong warga memilah sampah dari sumber.');
             ta.dispatchEvent(new Event('input', { bubbles: true }));
             ta.dispatchEvent(new Event('change', { bubbles: true }));
-            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Kembangkan');
+            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Kembangkan'));
             if (btn) btn.click();
         })()
         """
@@ -88,9 +88,9 @@ async def test_lexia_happy_flow() -> None:
             };
             clickRadio('jenis_dokumen', 'peraturan');
             clickRadio('otoritas', 'bupati_kabupaten_placeholder');
-            const selectAll = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Pilih semua');
+            const selectAll = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Pilih semua'));
             if (selectAll) selectAll.click();
-            const submit = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Susun Kerangka Awal Dokumen');
+            const submit = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Susun Kerangka'));
             if (submit) submit.click();
         })()
         """
@@ -100,7 +100,7 @@ async def test_lexia_happy_flow() -> None:
         # Bypass placeholder warning
         bypass_warning_js = """
         (() => {
-            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Lanjutkan');
+            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Lanjutkan'));
             if (btn) btn.click();
         })()
         """
@@ -123,7 +123,7 @@ async def test_lexia_happy_flow() -> None:
             nativeTextAreaValueSetter.call(ta, 'Pasal 1: Ketentuan Umum (Sampah Rumah Tangga, Limbah Non-Organik, Warga, Pemerintah Daerah).');
             ta.dispatchEvent(new Event('input', { bubbles: true }));
             ta.dispatchEvent(new Event('change', { bubbles: true }));
-            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Finalisasi Dokumen');
+            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Finalisasi'));
             if (btn) btn.click();
         })()
         """
@@ -131,13 +131,13 @@ async def test_lexia_happy_flow() -> None:
         await asyncio.sleep(2)
         
         # Confirm incomplete finalization
-        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Lanjutkan').click()")
+        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Lanjutkan')).click()")
         await asyncio.sleep(8)
         
         # Transition to main editor
         editor_js = """
         (() => {
-            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Lanjut ke LexPose Editor');
+            const btn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Lanjut ke LexPose') || b.textContent.trim().includes('Editor'));
             if (btn) btn.click();
         })()
         """
@@ -145,7 +145,7 @@ async def test_lexia_happy_flow() -> None:
         await asyncio.sleep(2)
         
         # Bypass editor warnings
-        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim() === 'Tetap Lanjut ke LexPose Editor').click()")
+        await run_eval(ws, "Array.from(document.querySelectorAll('button')).find(b => b.textContent.trim().includes('Tetap Lanjut') || b.textContent.trim().includes('Editor')).click()")
         await asyncio.sleep(8)
         
         # Final Editor check
