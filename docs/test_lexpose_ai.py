@@ -9,16 +9,29 @@ import websockets
 
 WS_URL: str = "ws://localhost:9222/devtools/page/180D1077D3AD96F06063B5EC656D3396"
 
-async def run_eval(ws: websockets.WebSocketClientProtocol, expression: str) -> Any:
-    """Helper to run JS expressions on target page"""
-    await ws.send(json.dumps({
-        "id": 2, 
-        "method": "Runtime.evaluate", 
-        "params": {"expression": expression, "returnByValue": True}
-    }))
-    resp = await ws.recv()
-    result = json.loads(resp)
-    return result.get('result', {}).get('result', {}).get('value')
+async def run_eval(ws: websockets.WebSocketClientProtocol, expression: str, retries: int = 8) -> Any:
+    """Helper to run JS expressions on target page with retry support"""
+    for attempt in range(retries):
+        await ws.send(json.dumps({
+            "id": 100 + attempt, 
+            "method": "Runtime.evaluate", 
+            "params": {"expression": expression, "returnByValue": True}
+        }))
+        resp = await ws.recv()
+        result = json.loads(resp)
+        res_obj = result.get('result', {})
+        
+        if "exceptionDetails" in res_obj:
+            # Wait and retry if DOM is not ready
+            await asyncio.sleep(1.5)
+            continue
+            
+        val = res_obj.get('result', {}).get('value')
+        if val is not None:
+            return val
+            
+        await asyncio.sleep(1.5)
+    return None
 
 async def test_lexia_happy_flow() -> None:
     print("[1/5] Connecting to Chrome debugger...")
