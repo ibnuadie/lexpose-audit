@@ -1,9 +1,10 @@
 # test_lexpose_ai.py
-# ponytail: limit 150 lines
+# ponytail: limit 160 lines
 # strict typing: full type hints used
 
 import asyncio
 import json
+import re
 from typing import Dict, Any
 import websockets
 
@@ -47,16 +48,28 @@ async def wait_for_url(ws: websockets.WebSocketClientProtocol, pattern: str, tim
         await asyncio.sleep(1.5)
     raise TimeoutError(f"Timed out waiting for URL pattern: {pattern}")
 
+def get_credits_balance(text: str) -> int:
+    """Extract credit balance number from page body text"""
+    match = re.search(r'(\d+)\s*\n?\s*Kredit', text)
+    if match:
+        return int(match.group(1))
+    match = re.search(r'Kredit\s*\n?\s*(\d+)', text)
+    if match:
+        return int(match.group(1))
+    raise ValueError(f"Could not find credit balance in text: {text[:200]}")
+
 async def test_lexia_happy_flow() -> None:
     print("[1/5] Connecting to Chrome debugger...")
     async with websockets.connect(WS_URL, max_size=10*1024*1024) as ws:
         await ws.send(json.dumps({"id": 1, "method": "Page.enable"}))
         await ws.recv()
         
-        # Step 1: Check initial page state
+        # Step 1: Check initial page state and starting balance
         page_info = await run_eval(ws, "({url: window.location.href, text: document.body ? document.body.innerText : ''})")
         assert "dashboard" in page_info['url'], "Test must start on dashboard page"
-        print("  Dashboard loaded. HUD Credits:", "503" if "503" in page_info['text'] else "Unknown")
+        
+        initial_balance = get_credits_balance(page_info['text'])
+        print(f"  Dashboard loaded. Starting balance: {initial_balance} Credits.")
         
         # Step 2: Click 'Mulai dengan Lexia' and accept Beta warning modal
         print("[2/5] Navigating through warning modal...")
@@ -99,8 +112,10 @@ async def test_lexia_happy_flow() -> None:
         # Step 4: Verify brief generation and submit structure config
         print("[4/5] Reviewing AI brief and starting compilation...")
         page_info = await wait_for_url(ws, "drafting-brief-normatif")
-        assert "493" in page_info['text'] or "478" in page_info['text'], f"Base credits deduction verification failed: {page_info['text'][:200]}"
-        print("  Base reservation cost (10 credits) verified.")
+        
+        balance_after_reserve = get_credits_balance(page_info['text'])
+        print(f"  Base reservation cost verified. Balance: {balance_after_reserve} Credits.")
+        assert balance_after_reserve == initial_balance - 10, f"Reservation deduction mismatch! Expected {initial_balance - 10}, got {balance_after_reserve}"
         
         # Select brief options and submit
         submit_brief_js = """
@@ -133,8 +148,10 @@ async def test_lexia_happy_flow() -> None:
         # Step 5: Manual Pasal 1 injection and finalize
         print("[5/5] Injecting manual Pasal 1 definitions and finalising...")
         page_info = await wait_for_url(ws, "draft-struktur")
-        assert "488" in page_info['text'] or "473" in page_info['text'], f"Variable credits deduction verification failed: {page_info['text'][:200]}"
-        print("  Variable cost (5 credits) verified.")
+        
+        balance_after_deduct = get_credits_balance(page_info['text'])
+        print(f"  Variable cost verification. Balance: {balance_after_deduct} Credits.")
+        assert balance_after_deduct == initial_balance - 15, f"Variable cost deduction mismatch! Expected {initial_balance - 15}, got {balance_after_deduct}"
         
         # Fill Pasal 1 definitions and finalize
         finalize_js = """
